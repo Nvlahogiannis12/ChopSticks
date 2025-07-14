@@ -23,16 +23,16 @@
     </header>
     <main>
         <div class="opponentHands">
-        <h2 id="oppLeft">{Position TL: 1}</h2>
-        <h2 id="oppRight">{Position TR: 1}</h2>
+        <button id="opLButton" class="opLButton"><h2 id="oppLeft">{Position TL: 1}</h2></button>
+        <button id="opRButton" class="opRButton"><h2 id="oppRight">{Position TR: 1}</h2></button>
         </div>
         <div class="playerActions">
-          <button id="attackButton"><h1>Tap</h1></button>
+          <button id="attackButton" onclick="tapping()"><h1>Tap</h1></button>
           <button id="swapButton"><h1>Split</h1></button>
         </div>
         <div class="playerHands">
-        <h2 id="playerLeft">{Position PL: 1}</h2>
-        <h2 id="playerRight">{Position PR: 1}</h2>
+        <button id="playLButton" class="playLButton"><h2 id="playerLeft">{Position PL: 1}</h2></button>
+        <button id="playRButton" class="playRButton"><h2 id="playerRight">{Position PR: 1}</h2></button>
         </div>
     </main>
     <footer>

@@ -76,3 +76,38 @@ body {
   justify-content: center;
   gap: 1rem;
 }
+
+.opLButton , .opRButton {
+ all: unset;
+  display: block;
+  flex: 1;
+  max-width: 45%;
+  padding: 2%;
+justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f08a5d;
+  color: #eeeeee;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display:flex;
+}
+.playLButton, .playRButton{
+all: unset;
+  display: block;
+  flex: 1;
+  max-width: 45%;
+  padding: 2%;
+justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #00adb5;
+  color: #eeeeee;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display:flex;
+}
