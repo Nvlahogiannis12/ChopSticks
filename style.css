@@ -1,58 +1,78 @@
-body{
-    height:100%;
-    width:100%;
-    margin: 0;
-    padding: 0;
-    background-color:#222831;
-    color:#eeeeee;
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #222831;
+  color: #eeeeee;
 }
-.opponentHands{
-    position: fixed;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    
+
+/* Shared hand styles */
+.playerHands,
+.opponentHands {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
 }
-.playerHands{
-    position: fixed;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
+
+.opponentHands {
+  top: 5%;
 }
-#attackButton, #swapButton{
-    width:30%;
-    height:auto;
-    background-color:whitesmoke;
+
+.playerHands {
+  bottom: 5%;
 }
-.playerActions{
-    position:fixed;
-    bottom:50%;
-    left:50%;
-    transform: translateX(-50%);
-    width:80%;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;    
+#playerLeft, #playerRight,
+#oppLeft, #oppRight {
+  flex: 1;
+  max-width: 45%;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
 }
-#playerLeft, #playerRight{
-    width:40%;
-    margin:5%;
-    background-color:#00adb5;
-    border-radius: 10px;
-    padding:2%
+
+#playerLeft, #playerRight {
+  background-color: #00adb5;
+  flex: 1;
+  text-align: center;
+  padding: 2%;
+  border-radius: 10px;
 }
-#oppLeft, #oppRight{
-    width:40%;
-    margin:5%;
-    border-radius: 10px;
-    background-color:#f08a5d;
-    padding:2%
+
+#oppLeft, #oppRight {
+  background-color: #f08a5d;
+  flex: 1;
+  text-align: center;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+
+/* Buttons */
+#attackButton, #swapButton {
+  width: 30%;
+  height: auto;
+  background-color: whitesmoke;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Button container */
+.playerActions {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
