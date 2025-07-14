@@ -93,6 +93,7 @@ justify-content: center;
   box-sizing: border-box;
   cursor: pointer;
   display:flex;
+  border:solid whitesmoke 5px;
 }
 .playLButton, .playRButton{
 all: unset;
@@ -110,4 +111,9 @@ justify-content: center;
   box-sizing: border-box;
   cursor: pointer;
   display:flex;
+  border:solid whitesmoke 5px;
+}
+
+.selectedPH{
+  border:solid red 5px
 }
