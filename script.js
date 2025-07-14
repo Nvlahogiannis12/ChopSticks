@@ -10,6 +10,13 @@ let oppHand = {
   Left: 1,
   Right: 1,
 };
+UpdateHands()
+function UpdateHands(){
+  document.getElementById('playerLeft').innerText = playerHand.Left;
+  document.getElementById('playerRight').innerText = playerHand.Right;
+  document.getElementById('oppLeft').innerText = oppHand.Left;
+  document.getElementById('oppRight').innerText = oppHand.Right;
+}
 //when Tap is clicked adds event listener to the player hand for onclick
 function tapping(){
  document.getElementById("playLButton").onclick = () => {
@@ -41,17 +48,23 @@ function calcPlayerHand(selectedHand){
   };
 }
 
+let selectedOpponentHandKey;
+
 function calcOpponentHand(selectedOpHand){
   document.getElementById(selectedOpHand).classList.add('selectedPH')
   document.getElementById("opLButton").onclick = null;
   document.getElementById("opRButton").onclick = null;
+  selectedOpponentHandKey = selectedOpHand === "opLButton" ? "Left" : "Right";
+  opponentHandValue = oppHand[selectedOpponentHandKey];
 
-  const handKey = selectedOpHand === "opLButton" ? "Left" : "Right";
-  opponentHandValue = oppHand[handKey];
-
-  alert(opponentHandValue)
-  calc()
+  alert(opponentHandValue);
+  calc();
 }
+
 function calc(){
-  alert(opponentHandValue + playerHandValue)
+  //Calculates the new total. % 5 keeps it between a range of 0 - 4 so when hits 5 itll be 0
+  const total = (opponentHandValue + playerHandValue) % 5;
+  oppHand[selectedOpponentHandKey] = total;
+  alert(total);
+  UpdateHands();
 }
