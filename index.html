@@ -22,9 +22,17 @@
     <header>
     </header>
     <main>
-        <div>
-        <p>{Position TR: 1}</p>
-        <p>{Position TL: 1}</p>
+        <div class="row opponentHands">
+        <h2 id="oppLeft">{Position TL: 1}</h2>
+        <h2 id="oppRight">{Position TR: 1}</h2>
+        </div>
+        <div class="playerActions">
+          <button id="attackButton"><h1>Tap</h1></button>
+          <button id="swapButton"><h1>Split</h1></button>
+        </div>
+        <div class="row playerHands">
+        <h2 id="playerLeft">{Position PL: 1}</h2>
+        <h2 id="playerRight">{Position PR: 1}</h2>
         </div>
     </main>
     <footer>

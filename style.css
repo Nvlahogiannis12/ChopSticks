@@ -1,4 +1,58 @@
 body{
     height:100%;
     width:100%;
+    margin: 0;
+    padding: 0;
+    background-color:#222831;
+    color:#eeeeee;
+}
+.opponentHands{
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    
+}
+.playerHands{
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+#attackButton, #swapButton{
+    width:30%;
+    height:auto;
+    background-color:whitesmoke;
+}
+.playerActions{
+    position:fixed;
+    bottom:50%;
+    left:50%;
+    transform: translateX(-50%);
+    width:80%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;    
+}
+#playerLeft, #playerRight{
+    width:40%;
+    margin:5%;
+    background-color:#00adb5;
+    border-radius: 10px;
+    padding:2%
+}
+#oppLeft, #oppRight{
+    width:40%;
+    margin:5%;
+    border-radius: 10px;
+    background-color:#f08a5d;
+    padding:2%
 }
