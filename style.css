@@ -138,6 +138,17 @@ width: 30%;
   border: none;
 }
 
+#instructions{
+  width: 30%;
+  height: auto;
+  background-color: whitesmoke;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  color:black;
+}
+
 .playerTappingActions {
   position: fixed;
   bottom: 50%;
@@ -150,7 +161,7 @@ width: 30%;
   z-index:10;
 }
 
-.playerSwappingActions {
+.playerSwapActions {
   position: fixed;
   bottom: 50%;
   left: 50%;
