@@ -164,7 +164,7 @@ function playerSplitting(direction) {
 /*
 VS COMPUTER STRAT TO CODE
 if Hand >= 5 after attack go for that hand
-If not attack smallest number unless it can kill you
+If not attack smallest number unless it can kill you [DONE]
 if 1 hand 2 more than the other than swap hands
 if any of the player hands can kill then swap
 */
@@ -173,12 +173,63 @@ if any of the player hands can kill then swap
 function turnSwitch(turn){
   if (turn == 'opponent'){
     document.getElementById('playerActions').classList.add('d-none')
-    opponentComputing()
+    checkOppPossibleMoves(oppHand, playerHand)
   } else if (turn == 'player'){
     document.getElementById('playerActions').classList.remove('d-none')
   }
 }
-
-function opponentComputing(){
-  if(oppHand.Left + playerHand.Left >= 5 || oppHand.Left + playerHand.Right >= 5 || oppHand.Right + playerHand.Left >= 5 || oppHand.Right + playerHand.Right >= 5){}
+//number gen
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function checkOppPossibleMoves(attackerHandObj, targetHandObj) {
+  const attackerHands = ["Left", "Right"];
+  const targetHands = ["Left", "Right"];
+
+  for (let a of attackerHands) {
+    if (attackerHandObj[a] === 0) continue; // skip dead attacking hand
+
+    for (let t of targetHands) {
+      if (targetHandObj[t] === 0) continue; // skip dead target hand
+
+      // Simulate the tap: attacker value + target value mod 5
+      const result = (attackerHandObj[a] + targetHandObj[t]) % 5;
+
+      alert(`Using ${a} to tap ${t}: (${attackerHandObj[a]} + ${targetHandObj[t]}) % 5 = ${result}`);
+
+    }
+  }
+
+  if (playerHand.Left === playerHand.Right) {
+  const left = playerHand.Left;
+  const right = playerHand.Right;
+
+  let randomNumber = getRandomNumber(1, 2);
+
+  // Make sure the selected hand isn't 0
+  if (randomNumber === 1 && left === 0) {
+    randomNumber = 2;
+  } else if (randomNumber === 2 && right === 0) {
+    randomNumber = 1;
+  }
+  let strongerHand;
+  if(oppHand.Left === oppHand.Right){
+   strongerHand = oppHand.Left
+  } else{
+    strongerHand = Math.max(oppHand.Left, oppHand.Right)
+  }
+  // Apply logic
+  if (randomNumber === 1) {
+    playerHand.Left = (strongerHand + left) % 5;
+  } else {
+    playerHand.Right = (strongerHand + right) % 5;
+  }
+  UpdateHands()
+  turnSwitch('player')
+} else{
+
+}
+}
+
+//function equalHands(){}
