@@ -189,6 +189,7 @@ function getRandomNumber(min, max) {
 function checkOppPossibleMoves(attackerHandObj, targetHandObj) {
   const attackerHands = ["Left", "Right"];
   const targetHands = ["Left", "Right"];
+  let attackMade = false;
 
   for (let a of attackerHands) {
     if (attackerHandObj[a] === 0) continue; // skip dead attacking hand
@@ -205,11 +206,15 @@ function checkOppPossibleMoves(attackerHandObj, targetHandObj) {
         targetHandObj[t] = 0; // player hand is now dead
         UpdateHands();
         turnSwitch('player');
+        attackMade = true;
         return;
       }
 
 
     }
+  }
+  if (attackMade == false){
+    equalHands()
   }
 }
 
