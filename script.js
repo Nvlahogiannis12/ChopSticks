@@ -163,7 +163,7 @@ function playerSplitting(direction) {
 
 /*
 VS COMPUTER STRAT TO CODE
-if Hand >= 5 after attack go for that hand
+if Hand >= 5 after attack go for that hand [DONE]
 If not attack smallest number unless it can kill you [DONE]
 if 1 hand 2 more than the other than swap hands
 if any of the player hands can kill then swap
@@ -173,7 +173,10 @@ if any of the player hands can kill then swap
 function turnSwitch(turn){
   if (turn == 'opponent'){
     document.getElementById('playerActions').classList.add('d-none')
-    checkOppPossibleMoves(oppHand, playerHand)
+
+    if (playerHand.Left === playerHand.Right) equalHands();
+    else checkOppPossibleMoves(oppHand, playerHand);
+
   } else if (turn == 'player'){
     document.getElementById('playerActions').classList.remove('d-none')
   }
@@ -194,14 +197,23 @@ function checkOppPossibleMoves(attackerHandObj, targetHandObj) {
       if (targetHandObj[t] === 0) continue; // skip dead target hand
 
       // Simulate the tap: attacker value + target value mod 5
-      const result = (attackerHandObj[a] + targetHandObj[t]) % 5;
+      const result = (attackerHandObj[a] + targetHandObj[t]);
 
-      alert(`Using ${a} to tap ${t}: (${attackerHandObj[a]} + ${targetHandObj[t]}) % 5 = ${result}`);
+      alert(`Using ${a} to tap ${t}: (${attackerHandObj[a]} + ${targetHandObj[t]}) = ${result}`);
+
+      if (result >= 5) {
+        targetHandObj[t] = 0; // player hand is now dead
+        UpdateHands();
+        turnSwitch('player');
+        return;
+      }
+
 
     }
   }
+}
 
-  if (playerHand.Left === playerHand.Right) {
+function equalHands(){
   const left = playerHand.Left;
   const right = playerHand.Right;
 
@@ -227,9 +239,4 @@ function checkOppPossibleMoves(attackerHandObj, targetHandObj) {
   }
   UpdateHands()
   turnSwitch('player')
-} else{
-
 }
-}
-
-//function equalHands(){}
